@@ -31,7 +31,9 @@ sudo dnf install vagrant libvirt libvirt-devel
 
 ## Usage
 
-You should now be ready to `vagrant up`! If desired, change the RAM, CPU, and VRAM allocations in the vagrantfile. To acccess the GUI use Virt Manager.
+Copy the template directory that most closely represents your desired OS/Distro. Change the directory name to your OS/Distro name.
 
-username/password = vagrant/vagrant (as per vagrant standards, along with sudo no password)
+Inside the vagrantfile, change the `config.vm.box` to your desired vagrant box from https://app.vagrantup.com/boxes/search. If desired, change the RAM, CPU, and VRAM allocations as well.
+
+You should now be ready to `vagrant up`!. To acccess the GUI use Virt Manager. Standard vagrant username/password is `vagrant`/`vagrant`.
 
