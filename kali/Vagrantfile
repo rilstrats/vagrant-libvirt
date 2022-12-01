@@ -4,7 +4,9 @@ Vagrant.configure('2') do |config|
   
   config.vm.box = 'kalilinux/rolling'
   config.vm.provision :shell, path: 'provision.sh'
+
   config.vm.synced_folder '.', '/vagrant', type: 'rsync'
+  # config.vm.synced_folder '/home/rilstrats/nas/cyber', '/home/vagrant/cyber', type: 'nfs'
 
   config.vm.provider :libvirt do |libvirt|
 
