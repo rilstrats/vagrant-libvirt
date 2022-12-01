@@ -2,6 +2,8 @@
 
 Virtualbox and VMware virtual machines are configured perfectly out of the box and I wanted the same experience on my QEMU virtual machine. Enjoy!
 
+- https://developer.hashicorp.com/vagrant/docs
+- https://www.rubydoc.info/gems/vagrant-libvirt/0.0.11
 ## Host Setup
 
 ### QEMU/KVM
