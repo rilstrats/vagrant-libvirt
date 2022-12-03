@@ -1,8 +1,4 @@
 Vagrant.configure("2") do |config|
-
-  config.vagrant.plugins = ["vagrant-libvirt"]
-  config.vm.synced_folder ".", "/vagrant", type: "rsync"
-
   config.vm.define :kali, primary: true do |kali|
     kali.vm.box = "kalilinux/rolling"
     kali.vm.provision :shell, path: "provision.sh"
@@ -10,18 +6,8 @@ Vagrant.configure("2") do |config|
     kali.vm.provider :libvirt do |lv|
       lv.cpus = 2
       lv.memory = 4096
+      lv.video_vram = 256
     end
-  end
-
-  config.vm.provider :libvirt do |lv|
-    lv.cpus = 1
-    lv.memory = 2048
-    lv.video_vram = 128
-    lv.video_type = "virtio"
-    lv.graphics_type = "spice"
-    lv.qemu_use_session = false
-    lv.channel :type => "unix", :target_name => "org.qemu.guest_agent.0", :target_type => "virtio"
-    lv.channel :type => "spicevmc", :target_name => "com.redhat.spice.0", :target_type => "virtio"
   end
 
   # config.vm.define :ubuntu do |ubuntu|
@@ -35,6 +21,7 @@ Vagrant.configure("2") do |config|
   #   windows.vm.provider :libvirt do |lv|
   #     lv.cpus = 2
   #     lv.memory = 4096
+  #     lv.video_vram = 256
   #   end
   # end
 
